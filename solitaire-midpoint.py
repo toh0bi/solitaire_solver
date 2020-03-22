@@ -56,7 +56,7 @@ def move_pin(board,pin=None,moves=0,recursive_move=False):
     global saved
 
     # calculate specific id of board to check if it is already solved
-    for i in range(4):
+    for i in range(4): #4
         board_id=0
         k=1
         for i in range(7):
@@ -105,7 +105,7 @@ def move_pin(board,pin=None,moves=0,recursive_move=False):
             # +i
             if (i+2 <= 6):
                 if (board[i+2,j]==0) and (board[i+1,j]==1) and (board_allowed[i+2,j]==1):
-                    if not recursive_move: print("first move to the rigth")
+                    if not recursive_move: print("first move to the right")
                     board_new[:]=board
                     board_new[i,j]  =0
                     board_new[i+1,j]=0
