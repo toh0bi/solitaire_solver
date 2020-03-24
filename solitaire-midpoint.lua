@@ -126,13 +126,24 @@ brd_start[44] = nil --> Mitte entnehmen
 main function to recursive solve the board
 ]]
 function solve(brd,pin,moves,recursive_move)
-  if total_moves % 1000000 == 0 then io.write(string.format("DEBUG: in total %d moves made\n",total_moves))
+  if total_moves % 1000000 == 0
+   then io.write(string.format("DEBUG: in total %d moves made\n",total_moves))
   end
   total_moves = total_moves + 1
   --solution found?
   if pins_left(brd) == 1 then print("solution found!")
   end
   -- TODO check if board alredy was solved
+
+  --DEBUG
+  print("================")
+  print_brd(brd)
+  print("pins_left: " , pins_left(brd))
+  print("pin: " , pin)
+  print("moves: " , moves)  --TODO upvalue?!
+  print("total_moves: ", total_moves)
+  if total_moves > 10 then return 1 end
+  print("================")
 
   -- find a pin to move
   for pos in pairs(brd) do
@@ -158,6 +169,7 @@ function solve(brd,pin,moves,recursive_move)
     end
   end
   -- TODO save board
+  return 0
 end
 
 
