@@ -79,8 +79,8 @@ def move_pin(board,pin=None,moves=0,recursive_move=False):
         return 0
 
     # nur "gute" Lösungen
-    if moves > 8:
-        return 0
+    if moves > 10:
+       return 0
 
     for i in range(7):
         for j in range(7):
@@ -132,6 +132,8 @@ def move_pin(board,pin=None,moves=0,recursive_move=False):
                     board_new[i,j+2]=1
                     pin_new = i,j+2
                     move_pin(board_new,pin_new,moves,True)
+            if pin == (i,j):
+                moves += 1
     # kein gültiger Zug mehr gefunden
     # safe board to history as specific int
     board_hist.add(board_id)
